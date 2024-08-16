@@ -1,0 +1,67 @@
+[% USE date %]
+
+<table>
+  <tr class="listdarkbg">
+    <td>Address:</td>
+    <td>[% item.address| html %]</td>
+  </tr>
+  <tr class="listlightbg">
+    <td>Coordinates:</td>
+    <td>[% lng %]&deg;, [% lat %]&deg;</td>
+  </tr>
+  <tr class="listlightbg">
+    <td>Events:</td>
+    <td>
+      [% FOREACH event IN item.events %]
+        &ndash; <a href="[% base %]event/view/[% event.id %]">[%
+date.format(event.date, '%d. %b. %Y') %]</a>: 
+        [% event.title | html %]
+        <br />
+      [% END %]
+    </td>
+  </tr>
+  <tr>
+      <td>Map:</td>
+      <td>
+          <div id="mapWrap" style="width: 100%; height: 400px"></div>
+      </td>
+  </tr>
+</table>
+
+<script>
+// Define latitude, longitude and zoom level
+const latitude = [% lat %];
+const longitude = [% lng %];
+const zoom = 15;
+
+// Set container element to embed map
+var mymap = L.map('mapWrap');
+
+// Add initial marker & popup window
+var mmr = L.marker([0,0]);
+mmr.bindPopup('0,0');
+mmr.addTo(mymap);
+
+// Add copyright attribution
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {
+    foo: 'bar',
+    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}
+).addTo(mymap);
+
+// Set lat lng position and zoom level of map
+mmr.setLatLng(L.latLng(latitude, longitude));
+mymap.setView([latitude, longitude], zoom);
+
+// Set popup window content
+// mmr.setPopupContent('Latitude: '+latitude+' <br /> Longitude: '+longitude).openPopup();
+mmr.setPopupContent('Latitude: '+latitude+' <br /> Longitude: '+longitude).openPopup();
+
+// Set marker onclick event
+mmr.on('click', openPopupWindow);
+
+// Marker click event handler
+function openPopupWindow(e) {
+    mmr.setPopupContent('Latitude: '+e.latlng.lat+' <br /> Longitude: '+e.latlng.lng).openPopup();
+}
+</script>
+

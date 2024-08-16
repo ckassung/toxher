@@ -1,0 +1,177 @@
+package Toxher::Controller::Locations;
+use base 'Catalyst::Controller';
+
+use strict;
+use warnings;
+
+=head1 NAME
+
+Toxher::Controller::Locations - Catalyst Controller
+
+=head1 DESCRIPTION
+
+Catalyst Controller.
+
+=head1 METHODS
+
+=head2 default : Private
+
+=cut
+
+sub default : Private {
+    my ( $self, $c ) = @_;
+    $c->forward( 'list' );
+}
+
+=head2 list : Local
+ 
+Fetch all location objects and pass to locations/list.tt in stash to be displayed.
+ 
+=cut
+ 
+sub list : Local {
+    my ( $self, $c ) = @_;
+
+    my $list = $c->model('ToxherDB::Location')->search(undef, {          
+                       select => [                                             
+                           'address',                                          
+                           { ST_Y => 'coordinates' },                          
+                           { ST_X => 'coordinates' },                          
+                       ],                                                      
+                       as => [qw/                                              
+                           address                                             
+                           longitude                                           
+                           latitude                                            
+                       /],                                                     
+                       order_by => 'address ASC'                               
+                   });
+
+               # my $longitude = $list->get_column('longitude');
+
+    $c->stash(
+        content_class => 'wide',
+        list          => $list,
+        template      => 'locations/list.tt',
+        title         => 'All Locations',
+    );
+}
+
+# SELECT 
+#    *, 
+#     ST_Y(coordinates) as lat,   
+#     ST_X(coordinates) as lng 
+# FROM 
+#   locations;
+
+=head2 view : Local
+
+Shows all details to the wanted location.
+
+=cut
+
+sub view : Local {
+    my ( $self, $c, $id ) = @_;
+    my $item = $c->model( 'ToxherDB::Location' )->find( $id );
+    if ( !$item ) {
+        $c->detach( '/object_not_found' );
+    }
+    $c->stash(
+        item     => $item,
+        template => 'locations/view.tt',
+        title    => 'Details Location',
+    );
+}
+
+=head2 add : Local
+
+Shows form for adding a location.
+
+=cut
+
+sub add : Local {
+    my ( $self, $c ) = @_;
+    $c->stash(
+        action   => 'add',
+        template => 'locations/form.tt',
+        title    => 'Add Location',
+    );
+}
+
+=head2 do_add : Local
+
+=cut
+
+sub do_add : Local {
+    my ( $self, $c ) = @_;
+    $c->model( 'ToxherDB::Location' )->create({
+        address => scalar $c->req->param( 'address' ),
+    });
+    # $c->res->redirect( $c->uri_for('/locations/list') );
+    $c->forward( 'list' );
+}
+
+=head2 edit : Local
+
+Shows form for editing a location.
+
+=cut
+
+sub edit : Local {
+    my ( $self, $c, $id ) = @_;
+    my $item = $c->model( 'ToxherDB::Location' )->find( $id );
+    if ( !$item ) {
+        $c->detach( '/object_not_found' );
+    }
+
+    $c->stash(
+        action   => 'edit',
+        form     => {
+            address     => $item->address,
+            coordinates => $item->coordinates,
+        },
+        item     => $item,
+        template => 'locations/form.tt',
+        title    => 'Edit Location',
+    );
+}
+
+=head2 do_edit : Local
+
+=cut
+
+sub do_edit : Local {
+    my ( $self, $c, $id ) = @_;
+    my $item= $c->model( 'ToxherDB::Location' )->find( $id );
+    $item->address( $c->req->param( 'address' ) );
+    $item->update;
+    # $c->res->redirect( $c->uri_for('/locations/list') );
+    $c->forward( 'list' );
+}
+
+=head2 delete : Local
+
+=cut
+
+sub delete : Local {
+    my ( $self, $c, $id ) = @_;
+    my $item = $c->model( 'ToxherDB::Location' )->find( $id );
+    eval {
+        $item->delete;
+    };
+    # $c->res->redirect( $c->uri_for('/locations/list') );
+    $c->forward( 'list' );
+}
+
+1;
+__END__
+
+=head1 AUTHOR
+
+Christian Kassung
+
+=head1 LICENSE
+
+This library is free software. You can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut

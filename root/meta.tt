@@ -1,0 +1,17 @@
+<head>
+  <title>Toxher :: [% title IF title %]</title>
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <link rel="stylesheet" href="[% base %]static/css/default2.css" type="text/css" />
+  <link rel="stylesheet" href="[% base %]static/css/leaflet.css" type="text/css" />
+  <script src="[% base %]static/js/prototype.js" type="text/javascript"></script>
+  <script src="[% base %]static/js/scriptaculous.js" type="text/javascript"></script>
+  <script src="[% base %]static/js/fastinit.js" type="text/javascript"></script>
+  <script src="[% base %]static/js/tablesort.js" type="text/javascript"></script>
+  <script src="[% base %]static/js/leaflet.js" type="text/javascript"></script>
+   <script type="text/javascript">
+    SortableTable.setup({
+      rowEvenClass : 'listdarkbg',
+      rowOddClass  : 'listlightbg'
+    });
+  </script>
+</head>

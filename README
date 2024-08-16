@@ -1,0 +1,27 @@
+Installation
+
+Use the following command to build a toxher.db SQLite database:
+
+$ sqlite3 toxher.db < schema.sql
+
+Before eventually using this command again delete toxher.db.
+
+
+Run 
+script/toxher_server.pl -r 
+to test the application.
+
+Run 
+
+./script/toxher_create.pl model ToxherDB DBIC::Schema Toxher::Schema \
+    create=static dbi:SQLite:toxher.db \
+    on_connect_do="PRAGMA foreign_keys = ON"
+
+./script/toxher_create.pl model ToxherDB DBIC::Schema Toxher::Schema create=static naming=current use_namespaces=1 dbi:mysql:Oranienburg oranienburg filtering
+
+for generating/updating result classes. The toxher.db database file must be in the app's topmost directory.
+
+
+# SELECT load_extension('mod_spatialite');
+SELECT InitSpatialMetaData();
+SELECT AddGeometryColumn('location', 'geometry', 4326, 'POINT', 'XY');

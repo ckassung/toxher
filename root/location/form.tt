@@ -1,0 +1,17 @@
+<form action="[% base %]locations/do_[% action %][% '/' _ item.id
+    IF action == 'edit' %]" method="post" id="form">
+  <table>
+    <tr>
+      <td class="label">Address:</td>
+      <td><input type="text" name="address" /></td>
+      <td>[% form_error('address') %]</td>
+    </tr>
+    <tr>
+      <td class="label">Coordinates:</td>
+      <td><input type="text" name="coordinates" /></td>
+      <td>[% form_error('coordinates') %]</td>
+    </tr>
+  </table>
+  <input type="hidden" name="location-id" />
+  <input type="submit" value="speichern" />
+</form>

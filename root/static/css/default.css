@@ -1,0 +1,430 @@
+/* generics */
+body { font-size:10pt; font-family:Verdana,sans-serif; margin:0; padding:0; background:#f6f6f6 }
+
+img { border:none }
+
+a { color:#666699;text-decoration:none }
+a:hover { text-decoration:underline }
+
+td { vertical-align:top }
+
+h1 { color:#666699; font-weight:normal; margin-top:0; margin-bottom:10px; text-align:center }
+h2 { margin-top:0; margin-bottom:10px; background:#eee; padding:2px; -moz-border-radius:5px; font-weight:normal }
+
+.nowrap { white-space:nowrap }
+
+hr { border: none 0; border-top: 1px dashed #aaa; width: 100%; height: 1px; }
+
+/* ********************************************** */
+/* menu */
+#menu {
+  position:fixed; top:0px; width:100%;
+  background:#DEE7EC;
+  border:1px solid #ccc;
+  padding:3px; text-align:center; font-size:12px;
+}
+
+#menu a { padding:3px 3px }
+#menu select { font-size:10px }
+
+/* sub menues */
+#submenu { position:fixed; top:25px; width:100%; background:#fff; width:100%; border-bottom:1px solid #ccc; text-align:center; padding:3px; font-size:10px; color:#666 }
+#submenu a { color:#666699; padding:3px 0px; text-decoration:none }
+#submenu a:hover { text-decoration:underline }
+#submenu select { font-size:10px}
+
+/* messages */
+#msgcontainer { position: absolute; top:50px; width:100%; opacity:0.9 }
+#msgx { position:absolute; top:1px; right:1px; background:white; cursor:pointer }
+#msgs { position:relative; margin-left:20%; margin-right:20%; min-width:400px; padding:10px; background:#ff0; -moz-border-radius:5px }
+
+/* columns */
+#leftcol   { padding:10px }
+#middlecol { padding-left:10px; padding-right:10px }
+#rightcol  { padding:10px }
+
+.navbox {
+  background:#F7F9FA;
+  border:1px solid #ddd;
+  -moz-border-radius:4px;
+  font-size:8pt;
+  margin-bottom:20px;
+}
+
+.navbox { width:170px }
+.navboxtags { width:300px }
+
+.navboxtitle {
+  background:#DEE7EC;
+  color:#8587AE;
+  font-size:10pt;
+  font-weight:normal;
+  text-align:center;
+}
+
+.navboxcontent { padding:5px }
+
+.navbox ul {
+  padding:0;
+  list-style-image:url(http://admin.culture.hu-berlin.de/liblia/static/images/icons/bullet.png);
+  list-style-position:inside;
+}
+
+/* login form */
+#login-form label {
+  padding-right:5px;
+}
+
+#login-form input, #login-form select {
+  width:120px;
+}
+
+/* content */
+#content { margin:10px auto;margin-top:50px;margin-bottom:50px; padding:10px; width:900px; border:1px solid #eee; background:#fff; -moz-border-radius:10px }
+#content.narrow { padding:0 30px 20px 30px; margin-left:20%; margin-right:20%; border:1px solid #eee; -moz-border-radius:5px }
+#content.medium { margin-left:10%; margin-right:10%; padding:0 5px }
+#content.wide { margin-left:10px; margin-right:10px; padding:0 5px }
+
+#msg { margin-top:60px; margin-left:auto; margin-right:auto; padding:10px; -moz-border-radius:10px; width:500px; background:#f66 }
+
+/* ****************************************** */
+/* lists */
+.pager { font-size:10px; text-align:center }
+.pager-content { background:#f7f9fa }
+
+.list { margin-top:5px; width:100%; border-collapse:collapse; border:1px solid black; font-size:11px }
+.list th { background:#DEE7EC; border:1px solid #aaa; white-space:nowrap }
+.list td { border:1px solid #aaa; padding:0px 3px; vertical-align:middle }
+
+.listlightbg  { background:#fff }
+.listdarkbg { background:#F7F9FA }
+
+.document-drag-enabled {
+  cursor:copy;
+  opacity:1.0;
+}
+
+.document-drag-disabled {
+  cursor:default;
+  opacity:0.5;
+}
+
+.drag-handle { cursor:pointer }
+
+.collection-list { position:fixed; right:0; background:#f6f6f6; border:1px solid black; margin-top:40px; opacity:0; padding:5px 20px }
+.collection-list-title { text-align:center; font-weight:bold }
+.collection-drop { background:#f7f9fa; border:1px solid #ddd; -moz-border-radius:4px; color:#333; font-size:10px; margin:2px; padding:2px }
+.collection-name { overflow:hidden; white-space:nowrap }
+.collection-hover { background:#fff }
+
+#hidecols { display:none }
+#showcols {}
+
+#hidetags { display:none }
+#showtags {}
+
+.click { cursor:pointer }
+.boldclick { cursor:pointer; font-weight:bold; color:#666699; text-decoration:none }
+.boldclick:hover { text-decoration:underline }
+
+#document-actions { font-size:10px; background:#DEE7EC; border:1px solid #aaa }
+#document-actions td { white-space: nowrap }
+#document-actions select, #document-actions input { font-size:10px }
+
+.search-result { display:none }
+.search-result-caption { font-weight:bold; text-align:right }
+.search-result-value { }
+#showresults {}
+#hideresults { display:none }
+.hl { background:#ffcc00 }
+
+/* *********************************** */
+/* views */
+table.view { margin:10px 0; background:#f7f9fa; border-collapse:collapse; border:thin solid #ccc; width:100% }
+table.view td { border:2px solid #fff }
+table.view td.caption { color:#666699; font-weight:bold; padding-left:10px }
+table.mediadata td { border:none; padding-left:10px }
+table.mediadata img.mimelogo { padding-right:30px }
+
+/* forms */
+#form label, #form input, #form textarea, #form select {
+  float:left;
+  margin-bottom:10px;
+}
+
+#form .nofloat {
+  float:none;
+  margin-bottom:0px;
+}
+
+#form textarea { height:100px }
+
+#form input[type=text], #form input[type=password], #form textarea, #form select {
+  width:300px;
+  border-top:1px solid #555;
+  border-right:1px solid #555;
+  border-bottom:1px solid #555;
+  border-left:1px solid #555;
+  background-color:#f2f2f2;
+}
+
+#form select { width:300px }
+
+#form input.small { width:20px }
+
+#form input[type=submit], #form input[type=button], input[type=submit], input[type=reset] {
+  color:#000;
+  background:#fafafa;
+  border-color:#ccc #555 #555 #ccc;
+  border-style:solid;
+  border-width:1px;
+  background-color:#f2f2f2;
+}
+
+#form label { text-align:right; width:150px; padding-right:20px }
+
+#form br { clear:left }
+
+#form .char { margin-left:10px; cursor:pointer; color:#666699; font-size:.9em }
+
+#form .fieldinfo { display:table-cell; font-size:10px; padding-left:10px }
+#form .help { color:#aaa }
+.formerror { color:red }
+.formerrorbox { text-align:right; margin:5px; font-size:.8em }
+
+/* lecture form */
+
+div.tabs {
+  border-bottom-color: #aaa;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tabactive {
+  background-color: #fff;
+  color: #000;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-color: #aaa  #aaa  #000  #aaa;
+  border-width: 1px   1px   0     1px;
+  border-style: solid solid none  solid;
+  font-weight: bold;
+}
+
+.tabinactive {
+  background-color: #ddd;
+  color: #000;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-color: #aaa  #aaa  #000 #aaa;
+  border-width: 1px   1px   0    1px;
+  border-style: solid solid none solid;
+  font-weight: normal;
+}
+
+.tabactiveerror
+{
+    background-color: #ffaaaa;
+    color: #000000;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-color: #aaa  #aaa  #000 #aaa;
+    border-width: 1px   1px   0    1px;
+    border-style: solid solid none solid;
+    font-weight: normal;
+}
+
+.tabinactiveerror
+{
+    background-color: #ddaaaa;
+    color: #000000;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-color: #aaa  #aaa  #000 #aaa;
+    border-width: 1px   1px   0    1px;
+    border-style: solid solid none solid;
+    font-weight: normal;
+}
+
+/* import form */
+#importform #tags { width:100%; border-top:1px solid #000; border-right:1px solid #ddd; border-bottom:1px solid #ddd; border-left:1px solid #000 }
+#importform #tagseparator { border-top:1px solid #000; border-right:1px solid #ddd; border-bottom:1px solid #ddd; border-left:1px solid #000 }
+#importform #collections { width:100% }
+#importform input[type=submit], #importform input[type=button] { background:#fafafa; border-color:#ccc #000 #000 #ccc; border-style:solid; border-width:1px }
+#importform input[type=text] { border-top:1px solid #000; border-right:1px solid #ddd; border-bottom:1px solid #ddd; border-left:1px solid #000; width:300px }
+
+/* ********************************* */
+/* char selection */
+
+#charlist { border-collapse:separate; border-spacing:5px; border:1px solid #bbb; padding:10px;background:#eee }
+
+#charname { padding-top:20px }
+
+#charcode { padding-top:10px }
+
+.char {
+  background:#fff;
+  border-top:1px solid #bbb;
+  border-right:3px solid #bbb;
+  border-bottom:4px solid #bbb;
+  border-left:2px solid #bbb;
+  cursor:pointer;
+  min-height:20px;
+  min-width:20px;
+  text-align:center;
+}
+
+.char:hover {
+  border-top:4px solid #aaa;
+  border-right:2px solid #aaa;
+  border-bottom:1px solid #aaa;
+  border-left:3px solid #aaa;
+}
+
+.linkchar { float:left; padding-left:10px; cursor:pointer }
+
+/* ********************************* */
+/* documentation */
+
+/* ********************************* */
+/* property selection, used by type/(add|edit) */
+.property { white-space:nowrap; cursor:copy; margin-left:5px }
+.property:hover { background:#F7F9FA }
+.property-active { background:#F7F9FA }
+
+#wanted   { border:1px solid grey; width:300px; float:left; margin-left:30px }
+#unwanted { border:1px solid grey; width:300px; float:left }
+
+.breadcrumb { color:#339; font-size:90% }
+.illustration { float:left; text-align:center; color:#339; font-size:8pt; margin:10px }
+.code { white-space:pre;font-family:monospace;border:1px solid #ddd;padding:5px;margin:0 30px;background:#eee }
+
+ul.property-list { display:table;list-style-type:none;margin:0;padding:0;border-collapse:collapse }
+
+ul.property-list li { border-bottom:1px solid #aaa }
+ul.property-list li div { border-left:1px solid #aaa }
+
+.property-list-action { display:table-cell;width:79px }
+
+.property-list-name { display:table-cell;width:199px }
+
+.property-list-code { display:table-cell;width:199px }
+
+.property-list-description { display:table-cell }
+
+/* ********************************* */
+/* remote data retrieval, e. g. from amazon.com */
+
+.remote-list { display:table; border-collapse:collapse; width:100% }
+
+.remote-head-row { display:table-row; border:1px solid #aaa; background:#DEE7EC }
+.remote-head { display:table-cell; border:1px solid #aaa; padding:1px 3px }
+
+.remote-row { display:table-row; border-bottom:1px solid #aaa; padding:1px 3px }
+.remote-row:hover { background:#DEE7EC }
+.remote-action { display:table-cell; vertical-align:top; border-left:1px solid #aaa; padding:1px 3px }
+.remote-img { display:table-cell; vertical-align:top; border-left:1px solid #aaa; padding:1px 3px }
+.remote-img img { width:30px; height:auto }
+.remote-author { display:table-cell; vertical-align:top; border-left:1px solid #aaa; padding:1px 3px }
+.remote-title { display:table-cell; vertical-align:top; border-left:1px solid #aaa; border-right:1px solid #aaa; padding:1px 3px }
+
+/* ********************************* */
+/* autocompletion */
+/* tags */
+
+.tag_separator { color:#00f }
+
+div.autocomplete_tags { background:#fff }
+
+div.autocomplete_tags ul { border:1px solid #888; margin:0; padding:0; width:100%; list-style-type:none }
+
+div.autocomplete_tags ul li { margin:0; padding:3px }
+
+div.autocomplete_tags ul li.selected { background:#ffb }
+
+div.autocomplete_tags ul strong.highlight { color:#800; margin:0; padding:0 }
+
+/* XXX */
+
+div.auto_complete { width:300px; background:#fff }
+
+div.auto_complete ul {
+  border:1px solid #888;
+  margin:0;
+  padding:0;
+  width:100%;
+  list-style-type:none;
+}
+
+div.auto_complete ul li {
+  margin:0;
+  padding:3px;
+}
+
+div.auto_complete ul li.selected { background:#ffb }
+
+div.auto_complete ul strong.highlight {
+  color:#800;
+  margin:0;
+  padding:0;
+}
+
+/* page foot */
+div#foot {
+  background:#f5f5f5;
+  bottom:0;
+  border-top:1px solid #ddd;
+  opacity:0.9;
+  padding:10px 0px 10px 10px;
+  position:fixed;
+  width:100%;
+}
+
+#foot         { font-size:9pt }
+#foot a       { color:#666; text-decoration:none }
+#foot a:hover { text-decoration:underline; }
+#foothelp     { float:left }
+#footabout    { right:20px; position:absolute }
+
+/* bibliographies */
+.bib-author { font-weight:bold }
+.bib-title  { font-style:italic }
+
+/* XXX */
+
+.uploadStatus {
+  margin: 5px;
+}
+
+.progressBar {
+  margin: 5px;
+}
+
+.progressBar .border {
+  background: url(http://admin.culture.hu-berlin.de/liblia/static/images/progress-remainder.gif) repeat-x;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+  width: 100%;
+}
+
+.progressBar .background {
+  background: url(http://admin.culture.hu-berlin.de/liblia/static/images/progress-bar.gif) repeat-x;
+  height: 18px;
+  width: 0%;
+}
+
+.sortcol { background:#666699; color:#fff; cursor:pointer; padding-right:20px; background-repeat:no-repeat; background-position:right      center }
+.sortasc { background-image:url(images/up.gif) }
+.sortdesc { background-image:url(images/down.gif) }
+
+/* calendar view */
+table.calendar tr.head { background:#666699; color:#fff }
+table.calendar tr.top { -moz-border-radius-topleft:5px; -moz-border-radius-topright:5px }
+table.calendar tr.bottom { -moz-border-radius-bottomleft:5px; -moz-border-radius-bottomright:5px }
+table.calendar td { border:1px solid #DEE7EC }
+table.hour td { border:none }
+td.reserved { background:#ff6; -moz-border-radius:5px; font-size:8pt }
+td.busy { background:#8CEC97; -moz-border-radius:5px; font-size:8pt }
